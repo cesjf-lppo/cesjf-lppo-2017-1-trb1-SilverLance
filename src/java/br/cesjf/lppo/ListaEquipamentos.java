@@ -55,9 +55,7 @@ public class ListaEquipamentos extends HttpServlet {
                 equipamentos.add(equipamento);
             }
             
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(ListaEquipamentos.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (SQLException ex) {
+        } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(ListaEquipamentos.class.getName()).log(Level.SEVERE, null, ex);
         }
         request.setAttribute("equipamento", equipamentos);
