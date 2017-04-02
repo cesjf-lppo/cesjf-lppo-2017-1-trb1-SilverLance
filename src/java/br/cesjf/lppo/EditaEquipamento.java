@@ -78,10 +78,12 @@ public class EditaEquipamento extends HttpServlet {
             Class.forName("org.apache.derby.jdbc.ClientDriver");
             Connection conexao = DriverManager.getConnection("jdbc:derby://localhost:1527/lppo-2017-1", "usuario", "senha");
             Statement operacao = conexao.createStatement();
-            String str = "UPDATE equipamento SET local='"
-                    + equipamentos.getLocal() + "', estado="
+            String str = "UPDATE equipamento SET serie='"
+                    + equipamentos.getSerie() + "',local='"
+                    + equipamentos.getLocal() + "',estado="
                     + equipamentos.getEstado() + " WHERE id="
                     + equipamentos.getId();
+
             System.out.println(str);
             operacao.executeUpdate(str);
 
