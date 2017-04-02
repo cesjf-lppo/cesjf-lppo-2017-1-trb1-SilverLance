@@ -34,7 +34,7 @@ public class NovoEquipamento extends HttpServlet {
             throws ServletException, IOException {
         request.getRequestDispatcher("WEB-INF/novoEquipamento.jsp").forward(request, response);
     }
-    
+
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
