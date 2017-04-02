@@ -26,13 +26,28 @@
             </thead>
             <tbody>
                 <c:forEach var="equipamento" items="${equipamento}">
-                <tr>
-                    <td><a href ="edita.html?id=${equipamento.id}">${equipamento.id}</a></td>
-                    <td>${equipamento.serie}</td>
-                    <td>${equipamento.local}</td>
-                    <td>${equipamento.descricao}</td>
-                    <td>${equipamento.estado}</td>
-                </tr>
+                    <tr>
+                        <td><a href ="edita.html?id=${equipamento.id}">${equipamento.id}</a></td>
+                        <td>${equipamento.serie}</td>
+                        <td>${equipamento.local}</td>
+                        <td>${equipamento.descricao}</td>
+                        <td>
+                            <c:choose>
+                                <c:when test="${equipamento.estado == 0}">
+                                    Novo
+                                </c:when>
+                                <c:when test="${equipamento.estado == 1}">
+                                    Em uso
+                                </c:when>
+                                <c:when test="${equipamento.estado == 2}">
+                                    Danificado
+                                </c:when>
+                                <c:when test="${equipamento.estado == 3}">
+                                    Perdido
+                                </c:when>
+                            </c:choose>
+                        </td>
+                    </tr>
                 </c:forEach>
             </tbody>
         </table>
