@@ -47,6 +47,7 @@
                                 </c:when>
                             </c:choose>
                         </td>
+                        <td><a href="exclui.html?id=${equipamento.id}"><img src="Icones/exclui.jpg" width="20" height="20"></a></td>
                     </tr>
                 </c:forEach>
             </tbody>
