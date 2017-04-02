@@ -43,7 +43,7 @@ public class ListaEquipamentos extends HttpServlet {
             Class.forName("org.apache.derby.jdbc.ClientDriver");
             Connection conexao = DriverManager.getConnection("jdbc:derby://localhost:1527/lppo-2017-1", "usuario", "senha");
             Statement operacao = conexao.createStatement();
-            ResultSet resultado = operacao.executeQuery("SELECT * FROM equipamento");
+            ResultSet resultado = operacao.executeQuery("SELECT * FROM equipamento ORDER BY local");
 
             while(resultado.next()){
                 Equipamento equipamento = new Equipamento();
