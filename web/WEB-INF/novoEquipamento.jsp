@@ -17,6 +17,12 @@
             <label>Número de Série: <input type="text" name="numSerie" value="" /></label>
             <label>Local: <input type="text" name="local" value="" /></label>
             <label>Descrição: <textarea name="descricao" rows="4" cols="20"></textarea></label>
+            <select name="estado">
+                <option value="0">Novo</option>
+                <option value="1">Em uso</option>
+                <option value="2">Danificado</option>
+                <option value="3">Perdido</option>
+            </select>
             <input type="submit" value="CADASTRAR" />
         </form>
     </body>
