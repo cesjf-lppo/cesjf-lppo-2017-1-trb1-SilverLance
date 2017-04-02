@@ -1,14 +1,11 @@
 package br.cesjf.lppo;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.text.ParseException;
-import java.util.Calendar;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
@@ -45,13 +42,12 @@ public class EditaEquipamento extends HttpServlet {
             Connection conexao = DriverManager.getConnection("jdbc:derby://localhost:1527/lppo-2017-1", "usuario", "senha");
             Statement operacao = conexao.createStatement();
             ResultSet resultado = operacao.executeQuery("SELECT * FROM equipamento WHERE id=" + id);
-
             if (resultado.next()) {
                 equipamentos.setId(resultado.getLong("id"));
                 equipamentos.setSerie(resultado.getString("serie"));
                 equipamentos.setLocal(resultado.getString("local"));
                 equipamentos.setDescricao(resultado.getString("descricao"));
-                equipamentos.setEstado(resultado.getInt("estado"));
+                equipamentos.setEstado(Integer.parseInt(resultado.getString("estado")));
             }
 
         } catch (ClassNotFoundException | SQLException ex) {
@@ -65,10 +61,10 @@ public class EditaEquipamento extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        Equipamento equipamentos = new Equipamento();
 
         try {
 
+            Equipamento equipamentos = new Equipamento();
             equipamentos.setId(Long.parseLong(request.getParameter("id")));
             equipamentos.setSerie(request.getParameter("serie"));
             equipamentos.setLocal(request.getParameter("local"));
@@ -78,7 +74,7 @@ public class EditaEquipamento extends HttpServlet {
             Class.forName("org.apache.derby.jdbc.ClientDriver");
             Connection conexao = DriverManager.getConnection("jdbc:derby://localhost:1527/lppo-2017-1", "usuario", "senha");
             Statement operacao = conexao.createStatement();
-            String str = "UPDATE equipamento SET serie='"
+            String str = "UPDATE equipamento SET serie='" 
                     + equipamentos.getSerie() + "',local='"
                     + equipamentos.getLocal() + "',estado="
                     + equipamentos.getEstado() + " WHERE id="
