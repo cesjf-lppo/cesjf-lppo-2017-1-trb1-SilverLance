@@ -13,6 +13,7 @@
         <title>Lista de Equipamentos</title>
     </head>
     <body>
+    <center>
         <h1>Lista de Equipamentos</h1>
         <table border="1">
             <thead>
@@ -52,5 +53,6 @@
                 </c:forEach>
             </tbody>
         </table>
+    </center>
     </body>
 </html>
