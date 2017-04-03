@@ -18,10 +18,10 @@
             <label>Local: <input type="text" name="local" value="" /></label>
             <label>Descrição: <textarea name="descricao" rows="4" cols="20"></textarea></label>
             <label>Estado:<select name="estado">
-                <option value="0">Novo</option>
-                <option value="1">Em uso</option>
-                <option value="2">Danificado</option>
-                <option value="3">Perdido</option>
+                    <option value="0">Novo</option>
+                    <option value="1">Em uso</option>
+                    <option value="2">Danificado</option>
+                    <option value="3">Perdido</option>
                 </select></label>
             <input type="submit"/>
         </form>

@@ -5,13 +5,14 @@ package br.cesjf.lppo;
  * @author Adriano
  */
 public class Equipamento {
+
     private Long id;
     private String serie;
     private String local;
     private String descricao;
     private int estado;
-    
-    public Equipamento(){
+
+    public Equipamento() {
     }
 
     /**

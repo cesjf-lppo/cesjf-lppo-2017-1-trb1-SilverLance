@@ -1,7 +1,6 @@
-    package br.cesjf.lppo;
+package br.cesjf.lppo;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -21,7 +20,7 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(name = "NovoEquipamento", urlPatterns = {"/novo.html"})
 public class NovoEquipamento extends HttpServlet {
 
-        @Override
+    @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         request.getRequestDispatcher("WEB-INF/novoEquipamento.jsp").forward(request, response);
@@ -34,7 +33,7 @@ public class NovoEquipamento extends HttpServlet {
         String local = request.getParameter("local");
         String descricao = request.getParameter("descricao");
         int estado = Integer.parseInt(request.getParameter("estado"));
-        
+
         Logger.getLogger(NovoEquipamento.class.getName()).log(Level.INFO, "POST: " + serie + "" + local + "" + descricao + "" + estado);
 
         try {

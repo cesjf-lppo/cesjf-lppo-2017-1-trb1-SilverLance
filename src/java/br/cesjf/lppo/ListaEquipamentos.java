@@ -1,7 +1,6 @@
 package br.cesjf.lppo;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -33,19 +32,19 @@ public class ListaEquipamentos extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-@Override
+    @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        List <Equipamento> equipamentos = new ArrayList<>();
-        
-                try {
+        List<Equipamento> equipamentos = new ArrayList<>();
+
+        try {
 
             Class.forName("org.apache.derby.jdbc.ClientDriver");
             Connection conexao = DriverManager.getConnection("jdbc:derby://localhost:1527/lppo-2017-1", "usuario", "senha");
             Statement operacao = conexao.createStatement();
             ResultSet resultado = operacao.executeQuery("SELECT * FROM equipamento ORDER BY local");
 
-            while(resultado.next()){
+            while (resultado.next()) {
                 Equipamento equipamento = new Equipamento();
                 equipamento.setId(resultado.getLong("Id"));
                 equipamento.setSerie(resultado.getString("serie"));
@@ -54,7 +53,7 @@ public class ListaEquipamentos extends HttpServlet {
                 equipamento.setEstado(resultado.getInt("estado"));
                 equipamentos.add(equipamento);
             }
-            
+
         } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(ListaEquipamentos.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -63,11 +62,10 @@ public class ListaEquipamentos extends HttpServlet {
 
     }
 
-
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+
     }
 
 }
