@@ -23,6 +23,18 @@
                     <th>Local</th>
                     <th>Descrição</th>
                     <th>Estado</th>
+                    <th>
+                        <form method="get">
+                            <select name="filtro">
+                                <option value="" ${(filtro=="")?"selected":""}>Todos</option>
+                                <option value="WHERE estado=0" ${(filtro=="WHERE estado=0")?"selected":""}>Novo</option>
+                                <option value="WHERE estado=1" ${(filtro=="WHERE estado=1")?"selected":""}>Em Uso</option>
+                                <option value="WHERE estado=2" ${(filtro=="WHERE estado=2")?"selected":""}>Danificado</option>
+                                <option value="WHERE estado=3" ${(filtro=="WHERE estado=3")?"selected":""}>Perdido</option>
+                            </select>
+                            <input type="submit" value="FILTRAR" />
+                        </form>
+                    </th>
                 </tr>
             </thead>
             <tbody>
