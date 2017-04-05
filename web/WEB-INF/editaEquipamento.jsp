@@ -4,27 +4,38 @@
     Author     : Adriano
 --%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Edita Equipamento</title>
-    </head>
-    <body>
-        <h1>Edita Equipamento</h1>
-        <form method="post">
-            <div><label>ID: <input type="text" name="id" value="${equipamento.id}" readonly="readonly"/></label></div>
-            <div><label>SÃ©rie: <input type="text" name="serie" value="${equipamento.serie}" readonly="readonly"/></label></div>
-            <div><label>Local: <input type="text" name="local" value="${equipamento.local}"/></label></div>
-            <div><label>DescriÃ§Ã£o: <input type="text" name="descricao" value="${equipamento.descricao}" readonly="readonly"/></label></div>
-            <div><label>Estado: <select name="estado">
-                        <option value="0">Novo</option>
-                        <option value="1">Em Uso</option>
-                        <option value="2">Danificado</option>
-                        <option value="3">Perdido</option>
-                    </select></label></div>
-            <div><input type="submit"></div>
-        </form>
-    </body>
-</html>
+<%@include file="cabeçalho.jsp" %>
+
+<div class="panel panel-primary" style="margin:20px;">
+    <div class="panel-heading">
+       	<h3 class="panel-title" style="text-align: center;">Edição de Equipamentos</h3>
+    </div> 
+    <div class="panel-body">
+        <center>
+            <form method="post" style="width: 70%; text-align: left">
+                <label>ID</label>
+                <input class="form-control" type="text" name="id" value="${equipamento.id}" readonly="readonly"/>
+                <label>Número de Série</label>
+                <input class="form-control" type="text" name="serie" value="${equipamento.serie}" readonly="readonly"/>
+                <label>Local</label>
+                <input class="form-control" type="text" name="local" value="${equipamento.local}"/>
+                <label>Descrição</label>
+                <textarea class="form-control" name="descricao" readonly="readonly" rows="4" cols="20">
+                    ${equipamento.descricao}
+                </textarea>
+                <label>Estado</label>
+                <select class="form-control" required name="estado">
+                    <option value="0">Novo</option> 
+                    <option value="1">Em Uso</option> 
+                    <option value="2">Danificado</option> 
+                    <option value="3">Perdido</option>  
+                </select>
+                <br>
+                <div class="form-group col-md-3 col-sm-3 pull-right" >
+                    <input type="submit" class="btn btn-primary" value="Cadastrar"/>
+                </div>
+            </form>
+        </center>
+    </div>
+</div>
+<%@include file="rodape.jsp" %>
