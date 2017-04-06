@@ -30,7 +30,7 @@
                         <option value="WHERE estado=2" ${(filtro=="WHERE estado=2")?"selected":""}>Danificado</option>
                         <option value="WHERE estado=3" ${(filtro=="WHERE estado=3")?"selected":""}>Perdido</option>
                     </select>
-                    <input type="submit" value="FILTRAR" />
+                    <input class="btn-primary" type="submit" value="FILTRAR" />
                 </form>
                 </th>
                 </tr>
@@ -38,7 +38,7 @@
                 <tbody>
                     <c:forEach var="equipamento" items="${equipamento}">
                         <tr>
-                            <td><a href ="edita.html?id=${equipamento.id}" title="EDITA EQUIPAMENTO">${equipamento.id}</a></td>
+                            <td>${equipamento.id}</td>
                             <td>${equipamento.serie}</td>
                             <td>${equipamento.local}</td>
                             <td>${equipamento.descricao}</td>
@@ -58,7 +58,8 @@
                                     </c:when>
                                 </c:choose>
                             </td>
-                            <td><a href="exclui.html?id=${equipamento.id}"><img src="Icone/excluir.jpg" title="EXCLUIR EQUIPAMENTO" width="20" height="20"></a></td>
+                            <td><a href="exclui.html?id=${equipamento.id}"><img src="Icone/excluir.png" title="EXCLUIR EQUIPAMENTO" width="75" height="25"></a>
+                                <a href="edita.html?id=${equipamento.id}"><img src="Icone/editar.png" title="EDITAR EQUIPAMENTO" width="75" height="25"></a></td>
                         </tr>
                     </c:forEach>
                 </tbody>
