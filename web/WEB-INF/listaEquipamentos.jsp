@@ -9,7 +9,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <div class="panel panel-primary" style="margin:20px;">
     <div class="panel-heading">
-       	<h3 class="panel-title" style="text-align: center;">Dados de Cadastro</h3>
+       	<h3 class="panel-title" style="text-align: center;">Dados dos Equipamentos</h3>
     </div> 
     <div class="panel-body">
         <div class="table-responsive">
