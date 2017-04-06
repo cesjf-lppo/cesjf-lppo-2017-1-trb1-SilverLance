@@ -22,7 +22,7 @@
                         <th>Descrição</th>
                         <th>Estado</th>
                         <th>
-                <form action="lista02" method="get">
+                <form method="get">
                     <select name="filtro">
                         <option value="" ${(filtro=="")?"selected":""}>Todos</option>
                         <option value="WHERE estado=0" ${(filtro=="WHERE estado=0")?"selected":""}>Novo</option>

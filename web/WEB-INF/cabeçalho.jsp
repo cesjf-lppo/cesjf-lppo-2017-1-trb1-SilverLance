@@ -22,15 +22,15 @@
                         <li><a href="lista.html">Lista de Equipamentos</a></li>
                         <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Equipamentos<span class="caret"></span></a>
                             <ul class="dropdown-menu" role="menu">
-                                <li><a href="lista02?filtro=">Todos os Equipamentos</a></li>
+                                <li><a href="lista.html?filtro=">Todos os Equipamentos</a></li>
                                 <li class="divider"></li>
-                                <li><a href="lista02?filtro=WHERE estado=0">Novo</a></li>
+                                <li><a href="lista.html?filtro=WHERE estado=0">Novo</a></li>
                                 <li class="divider"></li>
-                                <li><a href="lista02?filtro=WHERE estado=1">Em Uso</a></li>
+                                <li><a href="lista.html?filtro=WHERE estado=1">Em Uso</a></li>
                                 <li class="divider"></li>
-                                <li><a href="lista02?filtro=WHERE estado=2">Danificado</a></li>
+                                <li><a href="lista.html?filtro=WHERE estado=2">Danificado</a></li>
                                 <li class="divider"></li>
-                                <li><a href="lista02?filtro=WHERE estado=3">Perdido</a></li>
+                                <li><a href="lista.html?filtro=WHERE estado=3">Perdido</a></li>
                             </ul>
                         </li>
                     </ul>

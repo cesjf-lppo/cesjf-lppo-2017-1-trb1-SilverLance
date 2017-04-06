@@ -36,28 +36,44 @@ public class ListaEquipamentos extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         List<Equipamento> equipamentos = new ArrayList<>();
+        String filtro = request.getParameter("filtro");
 
         try {
 
             Class.forName("org.apache.derby.jdbc.ClientDriver");
             Connection conexao = DriverManager.getConnection("jdbc:derby://localhost:1527/lppo-2017-1", "usuario", "senha");
             Statement operacao = conexao.createStatement();
-            ResultSet resultado = operacao.executeQuery("SELECT * FROM equipamento ORDER BY local");
+            if (null == filtro) {
+                ResultSet resultado = operacao.executeQuery("SELECT * FROM equipamento ORDER BY local");
 
-            while (resultado.next()) {
-                Equipamento equipamento = new Equipamento();
-                equipamento.setId(resultado.getLong("Id"));
-                equipamento.setSerie(resultado.getString("serie"));
-                equipamento.setLocal(resultado.getString("local"));
-                equipamento.setDescricao(resultado.getString("descricao"));
-                equipamento.setEstado(resultado.getInt("estado"));
-                equipamentos.add(equipamento);
+                while (resultado.next()) {
+                    Equipamento equipamento = new Equipamento();
+                    equipamento.setId(resultado.getLong("Id"));
+                    equipamento.setSerie(resultado.getString("serie"));
+                    equipamento.setLocal(resultado.getString("local"));
+                    equipamento.setDescricao(resultado.getString("descricao"));
+                    equipamento.setEstado(resultado.getInt("estado"));
+                    equipamentos.add(equipamento);
+                }
+            } else {
+                ResultSet resultado = operacao.executeQuery("SELECT * FROM equipamento " + filtro);
+
+                while (resultado.next()) {
+                    Equipamento equipamento = new Equipamento();
+                    equipamento.setId(resultado.getLong("Id"));
+                    equipamento.setSerie(resultado.getString("serie"));
+                    equipamento.setLocal(resultado.getString("local"));
+                    equipamento.setDescricao(resultado.getString("descricao"));
+                    equipamento.setEstado(resultado.getInt("estado"));
+                    equipamentos.add(equipamento);
+                }
             }
 
         } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(ListaEquipamentos.class.getName()).log(Level.SEVERE, null, ex);
         }
         request.setAttribute("equipamento", equipamentos);
+        request.setAttribute("filtro", filtro);
         request.getRequestDispatcher("WEB-INF/listaEquipamentos.jsp").forward(request, response);
 
     }
