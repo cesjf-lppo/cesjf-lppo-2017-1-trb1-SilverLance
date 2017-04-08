@@ -18,7 +18,7 @@
                 <label>Local</label>
                 <input class="form-control" type="text" required name="local"/>
                 <label>Descrição</label>
-                <textarea class="form-control" name="descricao" rows="4" cols="20" required="required">
+                <textarea class="form-control" name="descricao" rows="4" cols="20" required >
                 </textarea>
                 <label>Estado</label>
                 <select class="form-control" required name="estado">

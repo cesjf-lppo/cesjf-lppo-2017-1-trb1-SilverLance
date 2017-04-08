@@ -25,10 +25,10 @@
                 <form method="get">
                     <select name="filtro">
                         <option value="" ${(filtro=="")?"selected":""}>Todos</option>
-                        <option value="WHERE estado=0" ${(filtro=="WHERE estado=0")?"selected":""}>Novo</option>
-                        <option value="WHERE estado=1" ${(filtro=="WHERE estado=1")?"selected":""}>Em Uso</option>
-                        <option value="WHERE estado=2" ${(filtro=="WHERE estado=2")?"selected":""}>Danificado</option>
-                        <option value="WHERE estado=3" ${(filtro=="WHERE estado=3")?"selected":""}>Perdido</option>
+                        <option value="0" ${(filtro=="0")?"selected":""}>Novo</option>
+                        <option value="1" ${(filtro=="1")?"selected":""}>Em Uso</option>
+                        <option value="2" ${(filtro=="2")?"selected":""}>Danificado</option>
+                        <option value="3" ${(filtro=="3")?"selected":""}>Perdido</option>
                     </select>
                     <input class="btn-primary" type="submit" value="FILTRAR" />
                 </form>
